@@ -1,9 +1,7 @@
 <?import javafx.scene.layout.GridPane?>
-<<<<<<< Updated upstream
 <GridPane fx:controller="LogInController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 </GridPane>
-=======
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
@@ -98,4 +96,3 @@
         </StackPane>
     </center>
 </BorderPane>
->>>>>>> Stashed changes
