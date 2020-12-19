@@ -23,7 +23,8 @@ public class LogInController {
 
     @FXML
     void clearClick(ActionEvent event) {
-
+        usernameTf.setText("");
+        passwordField.setText("");
     }
 
     @FXML
