@@ -33,8 +33,9 @@
     <center>
         <TableView fx:id="myReservationTable" prefHeight="261.0" prefWidth="571.0" BorderPane.alignment="CENTER">
             <columns>
-                <TableColumn prefWidth="456.0000104904175" text="预约时间" />
-                <TableColumn prefWidth="113.33328247070312" text="状态" />
+            <TableColumn prefWidth="81.99997234344482" text="场地编号" />
+                <TableColumn prefWidth="394.00003814697266" text="预约时间" />
+                <TableColumn prefWidth="93.33334350585938" text="状态" />
             </columns>
             <BorderPane.margin>
                 <Insets bottom="10.0" top="10.0" />
