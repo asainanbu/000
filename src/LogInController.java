@@ -6,6 +6,12 @@ import javafx.scene.control.TextField;
 public class LogInController {
 
     @FXML
+    private TextField nameTf;
+
+    @FXML
+    private TextField passwordTf;
+
+    @FXML
     private Button signInButton;
 
     @FXML
@@ -13,12 +19,6 @@ public class LogInController {
 
     @FXML
     private Button clearButton;
-
-    @FXML
-    private TextField nameTf;
-
-    @FXML
-    private TextField passwordTf;
 
     @FXML
     void clearClick(ActionEvent event) {
