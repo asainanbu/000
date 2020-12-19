@@ -106,7 +106,7 @@
         </StackPane>
     </center>
    <top>
-      <Label alignment="CENTER" text="羽毛球场馆预约系统" textAlignment="CENTER" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" text="羽毛球场馆预约系统" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
             <Font name="Microsoft YaHei Bold" size="29.0" />
          </font>
