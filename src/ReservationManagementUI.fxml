@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="550.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserMyReservationController">
+<BorderPane prefHeight="550.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReservationManagementController">
     <top>
         <AnchorPane BorderPane.alignment="CENTER">
             <children>
@@ -30,10 +30,10 @@
         <HBox alignment="CENTER" prefWidth="623.0" spacing="40.0" BorderPane.alignment="CENTER">
             <children>
                 <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnClick" text="返回" />
-                <Button fx:id="revokeButton" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="批准预约" />
-            <Button fx:id="revokeButton1" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="暂停预约" />
-            <Button fx:id="revokeButton2" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="恢复预约" />
-            <Button fx:id="revokeButton3" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="预约" />
+                <Button fx:id="approveButton" disable="true" mnemonicParsing="false" onAction="#approveClick" text="批准预约" />
+            <Button fx:id="pauseButton" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="暂停预约" />
+            <Button fx:id="resumeButton" disable="true" mnemonicParsing="false" onAction="#resumeClick" text="恢复预约" />
+            <Button fx:id="reserveButton" disable="true" mnemonicParsing="false" onAction="#reserveClick" text="预约" />
             </children>
         </HBox>
     </bottom>
