@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="453.0" prefWidth="446.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserGymReservationController">
+    <top>
+        <AnchorPane BorderPane.alignment="CENTER">
+            <children>
+                <Label alignment="CENTER" layoutX="145.0" prefHeight="27.0" prefWidth="135.0" text="场馆预约">
+                    <font>
+                        <Font name="Microsoft YaHei" size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <bottom>
+        <HBox alignment="CENTER" spacing="40.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnClick" text="返回" />
+                <Button fx:id="reserveButton" disable="true" mnemonicParsing="false" onAction="#reserveClick" text="预约" />
+            </children>
+        </HBox>
+    </bottom>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <TableView fx:id="reservationTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                  <TableColumn prefWidth="44.00003147125244" text="预约" />
+                <TableColumn prefWidth="199.3332862854004" text="开始时间" />
+                <TableColumn prefWidth="179.33335876464844" text="结束时间" />
+              </columns>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </BorderPane.margin>
+            </TableView>
+         </center>
+         <top>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="187.0" text="场地编号：" />
+                  <Label alignment="CENTER" prefHeight="41.0" prefWidth="218.0" text="预约日期：" GridPane.columnIndex="2" />
+                  <ComboBox fx:id="gymNumComboBox" onAction="#gymNumSelect" prefHeight="22.0" prefWidth="141.0" promptText="请选择" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="reservationDateComboBox" onAction="#reservationDateSelect" prefHeight="22.0" prefWidth="141.0" promptText="请选择" GridPane.columnIndex="3" />
+               </children>
+            </GridPane>
+         </top>
+      </BorderPane>
+   </center>
+</BorderPane>
