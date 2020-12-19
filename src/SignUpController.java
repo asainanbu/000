@@ -22,6 +22,9 @@ public class SignUpController {
     private PasswordField passwordAgainField;
 
     @FXML
+    private TextField trueNameTf;
+
+    @FXML
     void affirmClick(ActionEvent event) {
 
     }
