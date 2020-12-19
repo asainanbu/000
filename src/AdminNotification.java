@@ -9,6 +9,7 @@ public class AdminNotification extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("AdminNotificationUI.fxml"));
+        primaryStage.setTitle("消息通知");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
