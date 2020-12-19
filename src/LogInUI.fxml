@@ -22,7 +22,7 @@
                <children>
                       <Button fx:id="signInButton" mnemonicParsing="false" onAction="#signInClick" text="注册">
                           <font>
-                              <Font size="16.0" />
+                              <Font name="Microsoft YaHei" size="16.0" />
                           </font>
                       </Button>
                </children>
@@ -34,7 +34,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                      <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearClick" text="重置">
+                      <Button fx:id="clearButton" mnemonicParsing="false" onAction="#clearClick" text="清空">
                           <font>
                               <Font size="16.0" />
                           </font>
@@ -105,4 +105,14 @@
             </children>
         </StackPane>
     </center>
+   <top>
+      <Label alignment="CENTER" text="羽毛球场馆预约系统" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Microsoft YaHei Bold" size="29.0" />
+         </font>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </Label>
+   </top>
 </BorderPane>
