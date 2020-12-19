@@ -9,6 +9,7 @@ public class UserMyReservation extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("UserMyReservationUI.fxml"));
+        primaryStage.setTitle("我的预约");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
