@@ -1,1 +1,1 @@
-_All the pictures used in the repository are taken from [Openclipart](https://openclipart.org). Thanks for their sharing of the artworks_
+All the images used in the repository are taken from [Openclipart](https://openclipart.org). Thanks for their sharing of the excellent artworks
