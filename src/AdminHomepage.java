@@ -4,11 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Admin extends Application {
+public class AdminHomepage extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Admin.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("AdminHomepage.fxml"));
         Scene scene = new Scene(root, 300, 275);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(scene);
