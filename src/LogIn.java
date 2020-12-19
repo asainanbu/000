@@ -9,13 +9,8 @@ public class LogIn extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("LogInUI.fxml"));
-<<<<<<< Updated upstream
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
-=======
-        primaryStage.setTitle("登录");
-        primaryStage.setScene(new Scene(root));
->>>>>>> Stashed changes
         primaryStage.show();
     }
 
