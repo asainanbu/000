@@ -8,10 +8,8 @@ public class AdminHomepage extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("AdminHomepage.fxml"));
-        Scene scene = new Scene(root, 300, 275);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(scene);
+        Parent root = FXMLLoader.load(getClass().getResource("AdminHomepageUI.fxml"));
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
