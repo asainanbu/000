@@ -9,7 +9,7 @@ public class LogIn extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("LogInUI.fxml"));
-        primaryStage.setTitle("登录");
+        primaryStage.setTitle("羽毛球场馆预约系统");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
