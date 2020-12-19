@@ -9,8 +9,8 @@ public class SignUp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SignUpUI.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setTitle("注册新用户");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
 
