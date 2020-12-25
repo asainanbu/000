@@ -2,19 +2,20 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class SignUp extends Application {
+import java.io.IOException;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("SignUpUI.fxml"));
-        primaryStage.setTitle("注册新用户");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+public class SignUp extends GridPane {
+
+    public SignUp() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SignUpUI.fxml"));
+            this.getChildren().add(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
