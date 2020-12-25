@@ -21,7 +21,7 @@
             <children>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                      <Button fx:id="signInButton" mnemonicParsing="false" onAction="#signInClick" text="注册">
+                      <Button fx:id="SignUpButton" mnemonicParsing="false" onAction="#signUpClick" text="注册">
                           <font>
                               <Font name="Microsoft YaHei" size="16.0" />
                           </font>
