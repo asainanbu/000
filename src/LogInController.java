@@ -43,7 +43,7 @@ public class LogInController {
 
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new SignUp());
+        Scene scene = new Scene(new SignUp(stage));
         stage.setScene(scene);
         stage.setTitle("注册");
         stage.show();
