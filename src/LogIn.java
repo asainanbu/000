@@ -1,21 +1,23 @@
-import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class LogIn extends Application {
+import java.io.IOException;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("LogInUI.fxml"));
-        primaryStage.setTitle("羽毛球场馆预约系统");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+public class LogIn extends BorderPane {
+
+    public LogIn(Stage stage) {
+        try {
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("LogInUI.fxml"));
+            this.getChildren().add(fxmlloader.load());
+
+            // 获得控制器对象,并把数据传给控制器对象
+            ((LogInController)fxmlloader.getController()).setOldStage(stage);;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
