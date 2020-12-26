@@ -2,19 +2,23 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class UserMyReservation extends Application {
+import java.io.IOException;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("UserMyReservationUI.fxml"));
-        primaryStage.setTitle("我的预约");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
-    }
+public class UserMyReservation extends GridPane {
 
-    public static void main(String[] args) {
-        launch(args);
+    public UserMyReservation(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserMyReservationUI.fxml"));
+            this.getChildren().add(fxmlLoader.load());
+
+            // 获得控制器对象,并把数据传给控制器对象
+            ((UserMyReservationController) fxmlLoader.getController()).setOldStage(stage);;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

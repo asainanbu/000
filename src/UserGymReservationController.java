@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class UserGymReservationController {
+
+    private Stage oldStage = null;
 
     @FXML
     private ResourceBundle resources;
@@ -46,7 +49,7 @@ public class UserGymReservationController {
 
     @FXML
     void returnClick(ActionEvent event) {
-
+        oldStage.hide();
     }
 
     @FXML
@@ -57,5 +60,8 @@ public class UserGymReservationController {
         assert gymNumComboBox != null : "fx:id=\"gymNumComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
 
+    }
+    public void setOldStage(Stage stage) {
+        oldStage = stage;
     }
 }

@@ -22,7 +22,7 @@ public class LogInController {
     private Button clearButton;
 
     @FXML
-    private TextField usernameTf;
+    public static TextField usernameTf;
 
     @FXML
     private PasswordField passwordField;
@@ -35,7 +35,11 @@ public class LogInController {
 
     @FXML
     void logInClick(ActionEvent event) {
-
+        Stage stage = new Stage();
+        Scene scene = new Scene(new UserHomepage(stage));
+        stage.setScene(scene);
+        stage.setTitle("用户界面");
+        stage.show();
     }
 
     @FXML
