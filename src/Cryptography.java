@@ -12,8 +12,8 @@ public class Cryptography {
                 messageDigest.update(plainText.getBytes());
                 byte byteBuffer[] = messageDigest.digest();
                 StringBuilder stringBuilder = new StringBuilder();
-                for (int i = 0; i < byteBuffer.length; i++) {
-                    String hex = Integer.toHexString(0xff & byteBuffer[i]);
+                for (byte b : byteBuffer) {
+                    String hex = Integer.toHexString(0xff & b);
                     if (hex.length() == 1) {
                         stringBuilder.append('0');
                     }
