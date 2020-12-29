@@ -10,8 +10,8 @@ public class Main extends Application {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/hippo_reservation?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-    static Connection connection = null;
-    static Statement statement = null;
+    static Connection connection;
+    static Statement statement;
     static String currentMemberName = "undefined";
 
     @Override
@@ -43,13 +43,16 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        //initialize the database
         try{
             Class.forName(JDBC_DRIVER);
             connection = DriverManager.getConnection(DB_URL,"root","");
-            statement = connection.createStatement();
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         }catch(SQLException | ClassNotFoundException se) {
+            System.out.println("ERROR: Failed to initialize the databse!");
             se.printStackTrace();
         }
+
         launch(args);
     }
 }
