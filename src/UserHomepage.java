@@ -2,12 +2,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class UserHomepage extends GridPane {
+public class UserHomepage extends BorderPane {
 
     public UserHomepage(Stage stage) {
         try {
