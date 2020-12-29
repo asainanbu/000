@@ -9,21 +9,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-//public class ReservationManagement extends Application {
-//
-//    @Override
-//    public void start(Stage primaryStage) throws Exception{
-//        Parent root = FXMLLoader.load(getClass().getResource("ReservationManagementUI.fxml"));
-//        primaryStage.setTitle("预约管理");
-//        primaryStage.setScene(new Scene(root));
-//        primaryStage.show();
-//    }
-//
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//}
-
 public class ReservationManagement extends BorderPane {
 
     public ReservationManagement(Stage stage) {
