@@ -1,3 +1,6 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+#JAR Archives
+mysql_connector_java_8_0_22.xml
