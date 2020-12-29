@@ -2,19 +2,25 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-public class MemberOverview extends Application {
+import java.io.IOException;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("MemberOverviewUI.fxml"));
-        primaryStage.setTitle("会员一览");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+public class MemberOverview extends BorderPane {
+
+    public MemberOverview(Stage stage) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MemberOverviewUI.fxml"));
+            this.getChildren().add(fxmlLoader.load());
+
+            // 获得控制器对象,并把数据传给控制器对象
+            ((MemberOverviewController)fxmlLoader.getController()).setOldStage(stage);;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void main(String[] args) {
-        launch(args);
-    }
 }
+

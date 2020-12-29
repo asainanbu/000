@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class MemberOverviewController {
+
+    private Stage oldStage = null;
 
     @FXML
     private ResourceBundle resources;
@@ -53,7 +56,15 @@ public class MemberOverviewController {
 
     @FXML
     void returnClick(ActionEvent event) {
+        
 
+        // 隐藏之前的窗体
+        oldStage.hide();
+
+    }
+
+    public void setOldStage(Stage stage) {
+        oldStage = stage;
     }
 
     @FXML
