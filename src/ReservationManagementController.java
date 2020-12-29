@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 
 public class ReservationManagementController {
+
+    private Stage oldStage = null;
 
     @FXML
     private ResourceBundle resources;
@@ -48,12 +51,17 @@ public class ReservationManagementController {
 
     @FXML
     void returnClick(ActionEvent event) {
-
+        // 隐藏之前的窗体
+        oldStage.hide();
     }
 
     @FXML
     void revokeClick(ActionEvent event) {
 
+    }
+
+    public void setOldStage(Stage stage) {
+        oldStage = stage;
     }
 
     @FXML
