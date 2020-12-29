@@ -4,8 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class AdminHomepageController {
+
+    private Stage oldStage = null;
 
     @FXML
     private ResourceBundle resources;
@@ -46,6 +49,10 @@ public class AdminHomepageController {
     @FXML
     void reservationManagementClick(ActionEvent event) {
 
+    }
+
+    public void setOldStage(Stage stage) {
+        oldStage = stage;
     }
 
     @FXML
