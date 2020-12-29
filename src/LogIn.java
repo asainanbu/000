@@ -18,6 +18,7 @@ public class LogIn extends BorderPane {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 }
