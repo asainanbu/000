@@ -56,8 +56,6 @@ public class MemberOverviewController {
 
     @FXML
     void returnClick(ActionEvent event) {
-        
-
         // 隐藏之前的窗体
         oldStage.hide();
 
