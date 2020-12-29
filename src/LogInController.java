@@ -12,7 +12,6 @@ import java.util.Optional;
 public class LogInController {
 
     private Stage oldStage = null;
-    private Statement statement = null;
 
     @FXML
     private Button SignUpButton;
