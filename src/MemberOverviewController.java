@@ -20,7 +20,7 @@ public class MemberOverviewController {
     private Button approveButton;
 
     @FXML
-    private Button disabelButton;
+    private Button disableButton;
 
     @FXML
     private Button enableButton;
@@ -60,7 +60,7 @@ public class MemberOverviewController {
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert approveButton != null : "fx:id=\"approveButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
-        assert disabelButton != null : "fx:id=\"disabelButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
+        assert disableButton != null : "fx:id=\"disableButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert enableButton != null : "fx:id=\"enableButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert resetButton != null : "fx:id=\"resetButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert memberTable != null : "fx:id=\"memberTable\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
