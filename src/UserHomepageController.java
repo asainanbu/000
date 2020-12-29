@@ -135,7 +135,7 @@ public class UserHomepageController {
     void notificationClick(ActionEvent event) {
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new SignUp(stage));
+        Scene scene = new Scene(new UserNotification(stage));
         stage.setScene(scene);
         stage.setTitle("消息通知");
         stage.show();
@@ -162,9 +162,11 @@ public class UserHomepageController {
         // 隐藏之前的窗体
         oldStage.hide();
     }
+
     public void setOldStage(Stage stage) {
         oldStage = stage;
     }
+
     @FXML
     void initialize() {
         assert notificationButton != null : "fx:id=\"notificationButton\" was not injected: check your FXML file 'UserHomepageUI.fxml'.";
