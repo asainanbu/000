@@ -96,8 +96,8 @@ public class SignUpController {
                     //  insert a new row into the database 'member'
                     memberRS.moveToInsertRow();
                     memberRS.updateString(1, usernameTf.getText());
-                    memberRS.updateString(2, trueNameTf.getText());
-                    memberRS.updateString(3, Cryptography.encrypt(passwordField.getText()));
+                    memberRS.updateString(2, Cryptography.encrypt(passwordField.getText()));
+                    memberRS.updateString(3, trueNameTf.getText());
                     memberRS.updateString(4, "user");
                     memberRS.updateString(5, "pending");
                     memberRS.insertRow();
