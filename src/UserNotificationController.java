@@ -1,4 +1,6 @@
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.stage.WindowEvent;
 
 public class UserNotificationController {
 
+
     private Stage oldStage = null;
 
     @FXML
@@ -26,7 +29,7 @@ public class UserNotificationController {
     private Button returnButton;
 
     @FXML
-    private TableView<?> notificationTable;
+    private TableView<NotificationResource> notificationTable;
 
     @FXML
     void returnClick(ActionEvent event) {
@@ -65,6 +68,18 @@ public class UserNotificationController {
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert notificationTable != null : "fx:id=\"notificationTable\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
-
+        String date;
+        String content;
+        ResultSet notificationRS = null;
+        try {
+            notificationRS = Main.statement.executeQuery("SELECT * FROM notification");
+            while(notificationRS.next()){
+                date=notificationRS.getString("release_date");
+                content=notificationRS.getString("content");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
+
 }

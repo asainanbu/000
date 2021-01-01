@@ -32,6 +32,7 @@ public class UserGymReservationController {
     @FXML
     private ComboBox<?> reservationDateComboBox;
 
+
     @FXML
     void gymNumSelect(ActionEvent event) {
 
