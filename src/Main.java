@@ -12,7 +12,7 @@ public class Main extends Application {
     static final String DB_URL = "jdbc:mysql://localhost:3306/hippo_reservation?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
     static Connection connection;
     static Statement statement;
-    static String currentMemberName = "undefined";
+    static String currentMemberName = "";
 
     @Override
     public void start(Stage stage) throws Exception{
