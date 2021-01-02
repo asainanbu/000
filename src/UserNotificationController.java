@@ -19,10 +19,10 @@ public class UserNotificationController {
     private Stage oldStage = null;
 
     @FXML
-    private TableColumn<NotificationResource,String> LaunchDate;
+    private TableColumn<NotificationResource,String> launchDate;
 
     @FXML
-    private TableColumn<NotificationResource,String> Contents;
+    private TableColumn<NotificationResource,String> contents;
 
     @FXML
     private ResourceBundle resources;
@@ -76,8 +76,8 @@ public class UserNotificationController {
     @FXML
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
-        assert Contents != null : "fx:id=\"Contents\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
-        assert LaunchDate != null : "fx:id=\"LaunchDate\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
+        assert contents != null : "fx:id=\"Contents\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
+        assert launchDate != null : "fx:id=\"LaunchDate\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert notificationTable != null : "fx:id=\"notificationTable\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         String date;
         String content;
@@ -90,8 +90,8 @@ public class UserNotificationController {
                 ObservableList<NotificationResource> obsList = FXCollections.observableArrayList();
                 obsList.add(new NotificationResource(date,content));
                 notificationTable.setItems(obsList);
-                LaunchDate.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("date"));
-                Contents.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("includings"));
+                launchDate.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("date"));
+                contents.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("includings"));
             }
             notificationRS.close();
         } catch (SQLException throwables) {
