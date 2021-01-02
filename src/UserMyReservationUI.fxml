@@ -33,10 +33,10 @@
     <center>
         <TableView fx:id="myReservationTable" prefHeight="261.0" prefWidth="571.0" BorderPane.alignment="CENTER">
             <columns>
-            <TableColumn prefWidth="93.33334636688232" text="场地编号" />
-            <TableColumn prefWidth="139.99996185302734" text="预约日期" />
-                <TableColumn prefWidth="221.33338928222656" text="预约时间" />
-                <TableColumn prefWidth="114.66665649414062" text="状态" />
+            <TableColumn fx:id="number" prefWidth="93.33334636688232" text="场地编号" />
+            <TableColumn fx:id="date" prefWidth="139.99996185302734" text="预约日期" />
+                <TableColumn fx:id="time" prefWidth="221.33338928222656" text="预约时间" />
+                <TableColumn fx:id="situation" prefWidth="114.66665649414062" text="状态" />
             </columns>
             <BorderPane.margin>
                 <Insets bottom="10.0" top="10.0" />
