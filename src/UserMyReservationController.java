@@ -18,16 +18,16 @@ public class UserMyReservationController {
     @FXML
     private ResourceBundle resources;
     @FXML
-    private TableColumn<MyReservation,String> Number;
+    private TableColumn<MyReservation,String> number;
 
     @FXML
-    private TableColumn<MyReservation,String> Date;
+    private TableColumn<MyReservation,String> date;
 
     @FXML
-    private TableColumn<MyReservation,String> Time;
+    private TableColumn<MyReservation,String> time;
 
     @FXML
-    private TableColumn<MyReservation,String> Situation;
+    private TableColumn<MyReservation,String> situation;
 
     @FXML
     private URL location;
@@ -83,10 +83,10 @@ public class UserMyReservationController {
     @FXML
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        assert  Number!= null : "fx:id=\"Number\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        assert  Date!= null : "fx:id=\"Date\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        assert  Time!= null : "fx:id=\"Time\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        assert  Situation!= null : "fx:id=\"Situation\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
+        assert  number != null : "fx:id=\"Number\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
+        assert  date != null : "fx:id=\"Date\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
+        assert  time != null : "fx:id=\"Time\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
+        assert  situation != null : "fx:id=\"Situation\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert revokeButton != null : "fx:id=\"revokeButton\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert myReservationTable != null : "fx:id=\"myReservationTable\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         String time, date, number;
@@ -100,9 +100,9 @@ public class UserMyReservationController {
                 ObservableList<MyReservation> obsList = FXCollections.observableArrayList();
                 obsList.add(new MyReservation(number,date,time));
                 myReservationTable.setItems(obsList);
-                Number.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("number"));
-                Date.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("date"));
-                Time.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("time"));
+                this.number.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("number"));
+                this.date.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("date"));
+                this.time.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("time"));
             }
             reservationRS.close();
         } catch (SQLException throwables) {
