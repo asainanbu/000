@@ -5,23 +5,23 @@ public class Notification {
     private String includings;
 
     public Notification(String date, String includings){
-        this.date=date;
-        this.includings=includings;
+        this.date = date;
+        this.includings = includings;
     }
-    
-    public String getdate() {
+
+    public String getDate() {
         return date;
     }
 
-    public void setdate(String date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public String getincludings() {
+    public String getIncludings() {
         return includings;
     }
 
-    public void setincludings(String includings) {
+    public void setIncludings(String includings) {
         this.includings = includings;
     }
 }
