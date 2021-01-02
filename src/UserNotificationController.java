@@ -3,21 +3,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class UserNotificationController {
 
 
     private Stage oldStage = null;
+
+    @FXML
+    private TableColumn<NotificationResource,String> LaunchDate;
+
+    @FXML
+    private TableColumn<NotificationResource,String> Contents;
 
     @FXML
     private ResourceBundle resources;
@@ -30,6 +35,10 @@ public class UserNotificationController {
 
     @FXML
     private TableView<NotificationResource> notificationTable;
+
+    public UserNotificationController() {
+    }
+
 
     @FXML
     void returnClick(ActionEvent event) {
@@ -67,16 +76,24 @@ public class UserNotificationController {
     @FXML
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
+        assert Contents != null : "fx:id=\"Contents\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
+        assert LaunchDate != null : "fx:id=\"LaunchDate\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert notificationTable != null : "fx:id=\"notificationTable\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         String date;
         String content;
-        ResultSet notificationRS = null;
+        ResultSet notificationRS;
         try {
             notificationRS = Main.statement.executeQuery("SELECT * FROM notification");
             while(notificationRS.next()){
                 date=notificationRS.getString("release_date");
                 content=notificationRS.getString("content");
+                ObservableList<NotificationResource> obsList = FXCollections.observableArrayList();
+                obsList.add(new NotificationResource(date,content));
+                notificationTable.setItems(obsList);
+                LaunchDate.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("date"));
+                Contents.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("includings"));
             }
+            notificationRS.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
