@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserNotificationController">
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
@@ -35,8 +34,8 @@
    <center>
       <TableView fx:id="notificationTable" prefHeight="261.0" prefWidth="571.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="143.3333387374878" text="发布日期" />
-          <TableColumn prefWidth="426.66664123535156" text="内容" />
+          <TableColumn fx:id="launchDate" prefWidth="143.3333387374878" text="发布日期" />
+          <TableColumn fx:id="contents" prefWidth="426.66664123535156" text="内容" />
         </columns>
          <BorderPane.margin>
             <Insets bottom="10.0" top="10.0" />
