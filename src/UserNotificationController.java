@@ -19,10 +19,10 @@ public class UserNotificationController {
     private Stage oldStage = null;
 
     @FXML
-    private TableColumn<NotificationResource,String> launchDate;
+    private TableColumn<Notification,String> launchDate;
 
     @FXML
-    private TableColumn<NotificationResource,String> contents;
+    private TableColumn<Notification,String> contents;
 
     @FXML
     private ResourceBundle resources;
@@ -34,7 +34,7 @@ public class UserNotificationController {
     private Button returnButton;
 
     @FXML
-    private TableView<NotificationResource> notificationTable;
+    private TableView<Notification> notificationTable;
 
     public UserNotificationController() {
     }
@@ -87,11 +87,11 @@ public class UserNotificationController {
             while(notificationRS.next()){
                 date=notificationRS.getString("release_date");
                 content=notificationRS.getString("content");
-                ObservableList<NotificationResource> obsList = FXCollections.observableArrayList();
-                obsList.add(new NotificationResource(date,content));
+                ObservableList<Notification> obsList = FXCollections.observableArrayList();
+                obsList.add(new Notification(date,content));
                 notificationTable.setItems(obsList);
-                launchDate.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("date"));
-                contents.setCellValueFactory(new PropertyValueFactory<NotificationResource, String>("includings"));
+                launchDate.setCellValueFactory(new PropertyValueFactory<Notification, String>("date"));
+                contents.setCellValueFactory(new PropertyValueFactory<Notification, String>("includings"));
             }
             notificationRS.close();
         } catch (SQLException throwables) {

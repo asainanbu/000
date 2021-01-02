@@ -1,10 +1,14 @@
-public class NotificationResource {
-private String date;
-private String includings;
-public NotificationResource(String date,String includings){
-    this.date=date;
-    this.includings=includings;
-}
+
+public class Notification {
+
+    private String date;
+    private String includings;
+
+    public Notification(String date, String includings){
+        this.date=date;
+        this.includings=includings;
+    }
+    
     public String getdate() {
         return date;
     }
