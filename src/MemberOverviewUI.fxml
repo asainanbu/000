@@ -35,11 +35,11 @@
     <bottom>
       <HBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
          <children>
-              <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnClick" text="返回" />
-            <Button fx:id="approveButton" mnemonicParsing="false" onAction="#approveClick" text="批准注册" />
-            <Button fx:id="disableButton" mnemonicParsing="false" onAction="#disableClick" text="禁用账户" />
-            <Button fx:id="enableButton" mnemonicParsing="false" onAction="#enableClick" text="启用账户" />
-            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#resetClick" text="重置密码" />
+              <Button mnemonicParsing="false" onAction="#returnClick" text="返回" />
+            <Button mnemonicParsing="false" onAction="#approveClick" text="批准注册" />
+            <Button mnemonicParsing="false" onAction="#disableClick" text="禁用账户" />
+            <Button mnemonicParsing="false" onAction="#enableClick" text="启用账户" />
+            <Button mnemonicParsing="false" onAction="#resetClick" text="重置密码" />
          </children>
       </HBox>
     </bottom>

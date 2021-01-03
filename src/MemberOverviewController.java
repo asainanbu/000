@@ -1,22 +1,19 @@
-import java.net.URL;
+
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -29,27 +26,6 @@ public class MemberOverviewController {
     ResultSet memberRS = null;
 
     ObservableList<Member> memberObservableList = FXCollections.observableArrayList();
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
-    private Button returnButton;
-
-    @FXML
-    private Button approveButton;
-
-    @FXML
-    private Button disableButton;
-
-    @FXML
-    private Button enableButton;
-
-    @FXML
-    private Button resetButton;
 
     @FXML
     private TableView<Member> memberTable;
@@ -72,16 +48,48 @@ public class MemberOverviewController {
 
     @FXML
     void approveClick(ActionEvent event) {
+        if (Objects.equals(mouseSelectMember.getStatus(), "待审核")) {
+            PreparedStatement preparedStatement = null;
+            try {
+                preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'enabled' WHERE member_name = ?");
+                preparedStatement.setString(1, mouseSelectMember.getUsername());
+                preparedStatement.executeUpdate();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
+        }
+
         updateMemberTable();
     }
 
     @FXML
     void disableClick(ActionEvent event) {
+        if (Objects.equals(mouseSelectMember.getStatus(), "已启用")) {
+            PreparedStatement preparedStatement = null;
+            try {
+                preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'disabled' WHERE member_name = ?");
+                preparedStatement.setString(1, mouseSelectMember.getUsername());
+                preparedStatement.executeUpdate();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
+        }
+
         updateMemberTable();
     }
 
     @FXML
     void enableClick(ActionEvent event) {
+        if (Objects.equals(mouseSelectMember.getStatus(), "已禁用")) {
+            PreparedStatement preparedStatement = null;
+            try {
+                preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'enabled' WHERE member_name = ?");
+                preparedStatement.setString(1, mouseSelectMember.getUsername());
+                preparedStatement.executeUpdate();
+            } catch (SQLException sqlException) {
+                sqlException.printStackTrace();
+            }
+        }
 
         updateMemberTable();
     }
@@ -186,11 +194,6 @@ public class MemberOverviewController {
 
     @FXML
     void initialize() {
-        assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
-        assert approveButton != null : "fx:id=\"approveButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
-        assert disableButton != null : "fx:id=\"disableButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
-        assert enableButton != null : "fx:id=\"enableButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
-        assert resetButton != null : "fx:id=\"resetButton\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert memberTable != null : "fx:id=\"memberTable\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert usernameTableColumn != null : "fx:id=\"usernameTableColumn\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
         assert trueNameTableColumn != null : "fx:id=\"trueNameTableColumn\" was not injected: check your FXML file 'MemberOverviewUI.fxml'.";
