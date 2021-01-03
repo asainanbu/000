@@ -80,7 +80,9 @@ public class MemberOverviewController {
 
     @FXML
     void memberTableClick(MouseEvent event) {
+
         mouseSelectRow = memberTable.getSelectionModel().getSelectedIndex();
+
     }
 
     @FXML
