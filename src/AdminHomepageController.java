@@ -1,16 +1,10 @@
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
+import java.net.*;
+import java.util.*;
+import javafx.event.*;
+import javafx.fxml.*;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+import javafx.scene.control.*;
+import javafx.stage.*;
 
 public class AdminHomepageController {
 
