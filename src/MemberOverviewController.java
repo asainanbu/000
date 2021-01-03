@@ -24,7 +24,7 @@ public class MemberOverviewController {
 
     private Stage oldStage = null;
 
-    private int mouseSelectRow = -1;
+    private Member mouseSelectMember = null;
 
     ResultSet memberRS = null;
 
@@ -75,20 +75,21 @@ public class MemberOverviewController {
 
     @FXML
     void enableClick(ActionEvent event) {
+
         updateMemberTable();
     }
 
     @FXML
     void memberTableClick(MouseEvent event) {
 
-        mouseSelectRow = memberTable.getSelectionModel().getSelectedIndex();
+        mouseSelectMember = memberObservableList.get(memberTable.getSelectionModel().getSelectedIndex());
 
     }
 
     @FXML
     void resetClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new ResetPassword(memberObservableList.get(mouseSelectRow).getUsername()), ResetPassword.WIDTH, ResetPassword.HEIGHT);
+        Scene scene = new Scene(new ResetPassword(mouseSelectMember.getUsername()), ResetPassword.WIDTH, ResetPassword.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("重置密码");
         stage.show();
