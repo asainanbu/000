@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class SignUp extends GridPane {
 
+    public static final double WIDTH = 489, HEIGHT = 408;
+
     public SignUp(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SignUpUI.fxml"));

@@ -39,12 +39,11 @@ public class UserNotificationController {
     public UserNotificationController() {
     }
 
-
     @FXML
     void returnClick(ActionEvent event) {
 
         Stage stage = new Stage();
-        Scene scene = new Scene(new UserHomepage(stage));
+        Scene scene = new Scene(new UserHomepage(stage), UserHomepage.WIDTH, UserHomepage.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("用户主页");
         stage.show();
@@ -70,18 +69,22 @@ public class UserNotificationController {
         // 隐藏之前的窗体
         oldStage.hide();
     }
+
     public void setOldStage(Stage stage) {
         oldStage = stage;
     }
+
     @FXML
     void initialize() {
         assert returnButton != null : "fx:id=\"returnButton\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert contents != null : "fx:id=\"Contents\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert launchDate != null : "fx:id=\"LaunchDate\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert notificationTable != null : "fx:id=\"notificationTable\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
+
         String date;
         String content;
         ResultSet notificationRS;
+
         try {
             notificationRS = Main.statement.executeQuery("SELECT * FROM notification");
             while(notificationRS.next()){

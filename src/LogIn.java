@@ -7,6 +7,8 @@ import java.io.IOException;
 
 public class LogIn extends BorderPane {
 
+    public static final double WIDTH = 650, HEIGHT = 350;
+
     public LogIn(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LogInUI.fxml"));

@@ -120,7 +120,7 @@ public class SignUpController {
 
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new LogIn(stage));
+        Scene scene = new Scene(new LogIn(stage), LogIn.WIDTH, LogIn.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("登录");
         stage.show();

@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class UserGymReservation extends BorderPane {
 
+    public static final double WIDTH = 446, HEIGHT = 403;
+
 
     public UserGymReservation(Stage stage) {
         try {

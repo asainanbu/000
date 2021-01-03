@@ -80,7 +80,7 @@ public class LogInController {
                         Main.currentMemberName = usernameTf.getText();
 
                         Stage stage = new Stage();
-                        Scene scene = new Scene(new UserHomepage(stage));
+                        Scene scene = new Scene(new UserHomepage(stage), UserHomepage.WIDTH, UserHomepage.HEIGHT);
                         stage.setScene(scene);
                         stage.setTitle("用户主页");
                         stage.show();
@@ -125,7 +125,7 @@ public class LogInController {
                     Main.currentMemberName = usernameTf.getText();
 
                     Stage stage = new Stage();
-                    Scene scene = new Scene(new AdminHomepage(stage));
+                    Scene scene = new Scene(new AdminHomepage(stage), AdminHomepage.WIDTH, AdminHomepage.HEIGHT);
                     stage.setScene(scene);
                     stage.setTitle("管理员主页");
                     stage.show();
@@ -162,7 +162,7 @@ public class LogInController {
 
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new SignUp(stage));
+        Scene scene = new Scene(new SignUp(stage), SignUp.WIDTH, SignUp.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("注册");
         stage.show();

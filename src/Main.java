@@ -16,7 +16,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        Scene scene = new Scene(new LogIn(stage));
+        Scene scene = new Scene(new LogIn(stage), 650, 350);
         stage.setScene(scene);
         stage.setTitle("登录");
         stage.show();

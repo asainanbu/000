@@ -11,6 +11,8 @@ import java.io.IOException;
 
 public class UserMyReservation extends BorderPane {
 
+    public static final double WIDTH = 600, HEIGHT = 400;
+
     public UserMyReservation(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserMyReservationUI.fxml"));

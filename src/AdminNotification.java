@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class AdminNotification extends BorderPane {
 
+    public static final double WIDTH = 591, HEIGHT = 429;
+
     public AdminNotification(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminNotificationUI.fxml"));

@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class UserHomepage extends BorderPane {
 
+    public static final double WIDTH = 600, HEIGHT = 400;
+
     public UserHomepage(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserHomepageUI.fxml"));

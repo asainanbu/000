@@ -38,7 +38,7 @@ public class UserHomepageController {
     @FXML
     void gymReservationClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new UserGymReservation(stage));
+        Scene scene = new Scene(new UserGymReservation(stage), UserGymReservation.WIDTH, UserGymReservation.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("球馆预约");
         stage.show();
@@ -69,7 +69,7 @@ public class UserHomepageController {
     @FXML
     void logOutClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new LogIn(stage));
+        Scene scene = new Scene(new LogIn(stage), LogIn.WIDTH, LogIn.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("登录");
         stage.show();
@@ -103,7 +103,7 @@ public class UserHomepageController {
     @FXML
     void myReservationClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new UserMyReservation(stage));
+        Scene scene = new Scene(new UserMyReservation(stage), UserMyReservation.WIDTH, UserMyReservation.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("我的预约");
         stage.show();
@@ -135,7 +135,7 @@ public class UserHomepageController {
     void notificationClick(ActionEvent event) {
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new UserNotification(stage));
+        Scene scene = new Scene(new UserNotification(stage), UserNotification.WIDTH, UserNotification.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("消息通知");
         stage.show();

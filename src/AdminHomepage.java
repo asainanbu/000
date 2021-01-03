@@ -9,6 +9,8 @@ import java.io.IOException;
 
 public class AdminHomepage extends BorderPane {
 
+    public static final double WIDTH = 600, HEIGHT = 400;
+
     public AdminHomepage(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("AdminHomepageUI.fxml"));

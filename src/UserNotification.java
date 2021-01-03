@@ -10,6 +10,8 @@ import java.io.IOException;
 
 public class UserNotification extends BorderPane {
 
+    public static final double WIDTH = 600, HEIGHT = 400;
+
     public UserNotification(Stage stage) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("UserNotificationUI.fxml"));

@@ -44,7 +44,7 @@ public class UserMyReservationController {
     @FXML
     void returnClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new UserHomepage(stage));
+        Scene scene = new Scene(new UserHomepage(stage), UserHomepage.WIDTH, UserHomepage.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("用户主页");
         stage.show();

@@ -34,7 +34,7 @@ public class AdminHomepageController {
     @FXML
     void logOutClick(ActionEvent event) {
         Stage stage = new Stage();
-        Scene scene = new Scene(new LogIn(stage));
+        Scene scene = new Scene(new LogIn(stage), LogIn.WIDTH, LogIn.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("登录");
         stage.show();
@@ -69,7 +69,7 @@ public class AdminHomepageController {
     void memberOverviewClick(ActionEvent event) {
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new MemberOverview(stage));
+        Scene scene = new Scene(new MemberOverview(stage), MemberOverview.WIDTH, MemberOverview.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("会员一览");
         stage.show();
@@ -101,7 +101,7 @@ public class AdminHomepageController {
     void notificationClick(ActionEvent event) {
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new AdminNotification(stage));
+        Scene scene = new Scene(new AdminNotification(stage), AdminNotification.WIDTH, AdminNotification.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("消息通知");
         stage.show();
@@ -133,7 +133,7 @@ public class AdminHomepageController {
     void reservationManagementClick(ActionEvent event) {
         // 创建新的窗体
         Stage stage = new Stage();
-        Scene scene = new Scene(new ReservationManagement(stage));
+        Scene scene = new Scene(new ReservationManagement(stage), ReservationManagement.WIDTH, ReservationManagement.HEIGHT);
         stage.setScene(scene);
         stage.setTitle("消息通知");
         stage.show();
