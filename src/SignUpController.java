@@ -17,12 +17,6 @@ public class SignUpController {
     private TextField usernameTf;
 
     @FXML
-    private Button affirmButton;
-
-    @FXML
-    private Button returnButton;
-
-    @FXML
     private PasswordField passwordField;
 
     @FXML
@@ -32,7 +26,7 @@ public class SignUpController {
     private TextField trueNameTf;
 
     @FXML
-    void affirmClick(ActionEvent event) {
+    void confirmClick(ActionEvent event) {
 
         ResultSet memberRS = null;
 
