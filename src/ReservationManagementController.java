@@ -1,10 +1,16 @@
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class ReservationManagementController {
 
@@ -51,6 +57,34 @@ public class ReservationManagementController {
 
     @FXML
     void returnClick(ActionEvent event) {
+        Stage stage = new Stage();
+        Scene scene = new Scene(new AdminHomepage(stage), AdminHomepage.WIDTH, AdminHomepage.HEIGHT);
+        stage.setScene(scene);
+        stage.setTitle("管理员主页");
+        stage.show();
+
+        // 关闭舞台时，会弹出模态对话框确认是否退出
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                // 对话框 Alert Alert.AlertType.CONFIRMATION
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                // 设置对话框标题
+                alert.setTitle("退出");
+                // 设置内容
+                alert.setHeaderText("确定要退出吗？");
+                // 显示对话框
+                Optional<ButtonType> result = alert.showAndWait();
+                // 如果点击OK
+                if (result.get() == ButtonType.OK) {
+                    // 关闭窗体
+                    stage.close();
+                    // 否则
+                } else {
+                    event.consume();
+                }
+            }
+        });
         // 隐藏之前的窗体
         oldStage.hide();
     }
