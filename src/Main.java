@@ -3,13 +3,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
+
+import java.util.Calendar;
 import java.util.Optional;
 import java.sql.*;
 
 public class Main extends Application {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/hippo_reservation?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/hippo_reservation?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Singapore";
     static Connection connection;
     static Statement statement;
     static String currentMemberName = "";
