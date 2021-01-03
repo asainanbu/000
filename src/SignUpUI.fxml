@@ -52,8 +52,8 @@
       </Label>
       <HBox alignment="CENTER" spacing="30.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
          <children>
-            <Button fx:id="affirmButton" mnemonicParsing="false" onAction="#affirmClick" prefWidth="43.0" text="确认" />
-            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnClick" text="返回" />
+            <Button mnemonicParsing="false" onAction="#confirmClick" prefWidth="43.0" text="确认" />
+            <Button mnemonicParsing="false" onAction="#returnClick" text="返回" />
          </children>
       </HBox>
       <PasswordField fx:id="passwordField" maxWidth="180.0" prefHeight="28.0" prefWidth="30.0" promptText="请输入密码" GridPane.columnIndex="1" GridPane.rowIndex="3">
