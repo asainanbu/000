@@ -1,6 +1,5 @@
-import java.net.URL;
+
 import java.util.Optional;
-import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,12 +11,6 @@ import javafx.stage.WindowEvent;
 public class AdminNotificationController {
 
     private Stage oldStage = null;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button returnButton;
