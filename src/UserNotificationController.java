@@ -36,6 +36,9 @@ public class UserNotificationController {
     @FXML
     private TableView<Notification> notificationTable;
 
+    public UserNotificationController() {
+    }
+
     @FXML
     void returnClick(ActionEvent event) {
 
@@ -91,7 +94,7 @@ public class UserNotificationController {
                 obsList.add(new Notification(date,content));
                 notificationTable.setItems(obsList);
                 launchDate.setCellValueFactory(new PropertyValueFactory<Notification, String>("date"));
-                contents.setCellValueFactory(new PropertyValueFactory<Notification, String>("content"));
+                contents.setCellValueFactory(new PropertyValueFactory<Notification, String>("includings"));
             }
             notificationRS.close();
         } catch (SQLException throwables) {

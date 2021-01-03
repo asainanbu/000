@@ -2,11 +2,11 @@
 public class Notification {
 
     private String date;
-    private String content;
+    private String includings;
 
-    public Notification(String date, String content){
+    public Notification(String date, String includings){
         this.date = date;
-        this.content = content;
+        this.includings = includings;
     }
 
     public String getDate() {
@@ -17,11 +17,11 @@ public class Notification {
         this.date = date;
     }
 
-    public String getContent() {
-        return content;
+    public String getIncludings() {
+        return includings;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setIncludings(String includings) {
+        this.includings = includings;
     }
 }
