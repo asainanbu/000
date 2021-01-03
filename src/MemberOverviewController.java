@@ -64,6 +64,13 @@ public class MemberOverviewController {
     private TableColumn<Member, String> statusTableColumn;
 
     @FXML
+    void memberTableClick(MouseEvent event) {
+
+        mouseSelectMember = memberObservableList.get(memberTable.getSelectionModel().getSelectedIndex());
+
+    }
+
+    @FXML
     void approveClick(ActionEvent event) {
         updateMemberTable();
     }
@@ -77,13 +84,6 @@ public class MemberOverviewController {
     void enableClick(ActionEvent event) {
 
         updateMemberTable();
-    }
-
-    @FXML
-    void memberTableClick(MouseEvent event) {
-
-        mouseSelectMember = memberObservableList.get(memberTable.getSelectionModel().getSelectedIndex());
-
     }
 
     @FXML
