@@ -29,9 +29,9 @@
     <bottom>
         <HBox alignment="CENTER" prefWidth="623.0" spacing="40.0" BorderPane.alignment="CENTER">
             <children>
-                <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnClick" text="返回" />
+                <Button mnemonicParsing="false" onAction="#returnClick" text="返回" />
                 <Button fx:id="approveButton" disable="true" mnemonicParsing="false" onAction="#approveClick" text="批准预约" />
-            <Button fx:id="pauseButton" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="暂停预约" />
+            <Button fx:id="revokeButton" disable="true" mnemonicParsing="false" onAction="#revokeClick" text="暂停预约" />
             <Button fx:id="resumeButton" disable="true" mnemonicParsing="false" onAction="#resumeClick" text="恢复预约" />
             <Button fx:id="reserveButton" disable="true" mnemonicParsing="false" onAction="#reserveClick" text="预约" />
             </children>
@@ -43,18 +43,28 @@
             <Insets bottom="10.0" top="10.0" />
          </BorderPane.margin>
          <center>
-              <TableView fx:id="myReservationTable" prefHeight="261.0" prefWidth="571.0">
-                  <columns>
-                      <TableColumn prefWidth="69.33334064483643" text="场地编号" />
-                      <TableColumn prefWidth="127.3333511352539" text="预约日期" />
-                  <TableColumn prefWidth="209.3332977294922" text="预约时间" />
-                  <TableColumn minWidth="1.33331298828125" prefWidth="138.00003051757812" text="预约用户" />
-                      <TableColumn minWidth="8.0" prefWidth="94.0" text="状态" />
-                  </columns>
+            <GridPane minHeight="-Infinity" minWidth="-Infinity">
                <BorderPane.margin>
                   <Insets bottom="10.0" top="10.0" />
                </BorderPane.margin>
-              </TableView>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                    <TableView fx:id="reservationTable" onMouseClicked="#reservationTableClick" prefHeight="261.0" prefWidth="571.0">
+                        <columns>
+                            <TableColumn fx:id="gymNumTableColumn" editable="false" prefWidth="61.3333101272583" sortable="false" text="场地编号" />
+                            <TableColumn fx:id="reservationDateTableColumn" editable="false" prefWidth="119.9999771118164" resizable="false" sortable="false" text="预约日期" />
+                        <TableColumn fx:id="reservationTimeTableColumn" editable="false" prefWidth="110.66667175292969" resizable="false" sortable="false" text="预约时间" />
+                        <TableColumn fx:id="reservationMemberNameTableColumn" editable="false" minWidth="1.33331298828125" prefWidth="154.00006103515625" resizable="false" sortable="false" text="预约用户" />
+                            <TableColumn fx:id="statusTableColumn" editable="false" minWidth="8.0" prefWidth="89.33334350585938" resizable="false" sortable="false" text="状态" />
+                        </columns>
+                    </TableView>
+               </children>
+            </GridPane>
          </center>
          <top>
             <GridPane BorderPane.alignment="CENTER">
@@ -71,10 +81,10 @@
                <children>
                   <Label alignment="CENTER" prefHeight="61.0" prefWidth="174.0" text="场地编号：" />
                   <Label alignment="CENTER" prefHeight="57.0" prefWidth="259.0" text="预约日期：" GridPane.columnIndex="2" />
-                  <ComboBox prefWidth="150.0" promptText="请选择" GridPane.columnIndex="1" />
-                  <ComboBox prefWidth="150.0" promptText="请选择" GridPane.columnIndex="3" />
-                  <ComboBox prefWidth="150.0" promptText="请选择" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <ComboBox prefWidth="150.0" promptText="请选择" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="gymNumComboBox" onAction="#gymNumClick" prefWidth="150.0" promptText="请选择" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="reservationDateComboBox" onAction="#reservationDateClick" prefWidth="150.0" promptText="请选择" GridPane.columnIndex="3" />
+                  <ComboBox fx:id="startTimeComboBox" onAction="#startTimeClick" prefWidth="150.0" promptText="请选择" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="endTimeComboBox" onAction="#endTimeClick" prefWidth="150.0" promptText="请选择" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" prefHeight="87.0" prefWidth="387.0" text="开始时间：" GridPane.rowIndex="1" />
                   <Label alignment="CENTER" prefHeight="83.0" prefWidth="441.0" text="结束时间：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
