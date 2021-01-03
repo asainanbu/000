@@ -1,4 +1,4 @@
-import java.net.*;
+
 import java.util.*;
 import javafx.event.*;
 import javafx.fxml.*;
@@ -9,12 +9,6 @@ import javafx.stage.*;
 public class AdminHomepageController {
 
     private Stage oldStage = null;
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private Button notificationButton;
