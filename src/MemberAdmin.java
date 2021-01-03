@@ -1,10 +1,10 @@
 import java.util.Objects;
 
-public class Member {
+public class MemberAdmin {
 
 	private String username, trueName, status;
 
-	public Member(String username, String trueName, String status) {
+	public MemberAdmin(String username, String trueName, String status) {
 		this.username = username;
 		this.trueName = trueName;
 		this.status = status;

@@ -21,23 +21,23 @@ public class MemberOverviewController {
 
     private Stage oldStage = null;
 
-    private Member mouseSelectMember = null;
+    private MemberAdmin mouseSelectMember = null;
 
     ResultSet memberRS = null;
 
-    ObservableList<Member> memberObservableList = FXCollections.observableArrayList();
+    ObservableList<MemberAdmin> memberObservableList = FXCollections.observableArrayList();
 
     @FXML
-    private TableView<Member> memberTable;
+    private TableView<MemberAdmin> memberTable;
 
     @FXML
-    private TableColumn<Member, String> usernameTableColumn;
+    private TableColumn<MemberAdmin, String> usernameTableColumn;
 
     @FXML
-    private TableColumn<Member, String> trueNameTableColumn;
+    private TableColumn<MemberAdmin, String> trueNameTableColumn;
 
     @FXML
-    private TableColumn<Member, String> statusTableColumn;
+    private TableColumn<MemberAdmin, String> statusTableColumn;
 
     @FXML
     void memberTableClick(MouseEvent event) {
@@ -180,16 +180,16 @@ public class MemberOverviewController {
                 memberRS.beforeFirst();
             }
             while (memberRS.next()) {
-                memberObservableList.add(new Member(memberRS.getString("member_name"), memberRS.getString("real_name"), memberRS.getString("status")));
+                memberObservableList.add(new MemberAdmin(memberRS.getString("member_name"), memberRS.getString("real_name"), memberRS.getString("status")));
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
 
         memberTable.setItems(memberObservableList);
-        usernameTableColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("username"));
-        trueNameTableColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("trueName"));
-        statusTableColumn.setCellValueFactory(new PropertyValueFactory<Member, String>("status"));
+        usernameTableColumn.setCellValueFactory(new PropertyValueFactory<MemberAdmin, String>("username"));
+        trueNameTableColumn.setCellValueFactory(new PropertyValueFactory<MemberAdmin, String>("trueName"));
+        statusTableColumn.setCellValueFactory(new PropertyValueFactory<MemberAdmin, String>("status"));
     }
 
     @FXML
