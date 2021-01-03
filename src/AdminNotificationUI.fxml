@@ -63,8 +63,8 @@
          <children>
               <TableView fx:id="notificationTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="261.0" prefWidth="571.0">
                   <columns>
-                      <TableColumn prefWidth="143.3333387374878" text="发布日期" />
-                      <TableColumn prefWidth="426.66664123535156" text="内容" />
+                      <TableColumn fx:id="releaseDateTableColumn" prefWidth="143.3333387374878" text="发布日期" />
+                      <TableColumn fx:id="contentTableColumn" prefWidth="426.66664123535156" text="内容" />
                   </columns>
               </TableView>
          </children>
