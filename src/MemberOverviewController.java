@@ -180,7 +180,9 @@ public class MemberOverviewController {
                 memberRS.beforeFirst();
             }
             while (memberRS.next()) {
-                memberObservableList.add(new MemberAdmin(memberRS.getString("member_name"), memberRS.getString("real_name"), memberRS.getString("status")));
+                if (Objects.equals(memberRS.getString("identity"), "user")) {
+                    memberObservableList.add(new MemberAdmin(memberRS.getString("member_name"), memberRS.getString("real_name"), memberRS.getString("status")));
+                }
             }
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
