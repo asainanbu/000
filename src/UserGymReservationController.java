@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -90,13 +91,13 @@ public class UserGymReservationController {
         assert gymNumComboBox != null : "fx:id=\"gymNumComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         String num;
-        String date;
+        Date date;
         ResultSet numRS=null;
         try {
             numRS = Main.statement.executeQuery("SELECT * FROM reservation");
             while(numRS.next()){
                 num=numRS.getString("gym_number");
-                date=numRS.getString("date");
+                date=numRS.getDate("date");
                 gymNumComboBox.getItems().add(new gymnum(num));
                 reservationDateComboBox.getItems().add(new reservationDate(date));
             }

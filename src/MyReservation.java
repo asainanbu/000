@@ -1,18 +1,20 @@
+import java.sql.Date;
+
 public class MyReservation {
     private String number;
-    private String date;
+    private Date date;
     private String time;
-    public MyReservation(String number,String date,String time){
+    public MyReservation(String number,Date date,String time){
         this.date=date;
         this.number=number;
         this.time=time;
     }
 
-    public String getdate() {
+    public Date getdate() {
         return date;
     }
 
-    public void setdate(String date) {
+    public void setdate(Date date) {
         this.date = date;
     }
 

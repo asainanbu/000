@@ -1,19 +1,20 @@
+import java.sql.Date;
 
 public class Notification {
 
-    private String date;
+    private Date date;
     private String includings;
 
-    public Notification(String date, String includings){
+    public Notification(Date date, String includings){
         this.date = date;
         this.includings = includings;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
