@@ -1,4 +1,6 @@
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,20 +29,22 @@ public class UserGymReservationController {
     private TableView<?> reservationTable;
 
     @FXML
-    private ComboBox<?> gymNumComboBox;
+    private ComboBox<gymnum> gymNumComboBox;
 
     @FXML
-    private ComboBox<?> reservationDateComboBox;
+    private ComboBox<reservationDate> reservationDateComboBox;
 
 
     @FXML
     void gymNumSelect(ActionEvent event) {
-
+        int gymselectIndex = gymNumComboBox.getSelectionModel().getSelectedIndex();
+        Object gymselectItem =gymNumComboBox.getSelectionModel().getSelectedItem();
     }
 
     @FXML
     void reservationDateSelect(ActionEvent event) {
-
+        int dateselectIndex = reservationDateComboBox.getSelectionModel().getSelectedIndex();
+        Object dateselectItem =reservationDateComboBox.getSelectionModel().getSelectedItem();
     }
 
     @FXML
@@ -85,9 +89,23 @@ public class UserGymReservationController {
         assert reservationTable != null : "fx:id=\"reservationTable\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert gymNumComboBox != null : "fx:id=\"gymNumComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
-
+        String num;
+        String date;
+        ResultSet numRS=null;
+        try {
+            numRS = Main.statement.executeQuery("SELECT * FROM reservation");
+            while(numRS.next()){
+                num=numRS.getString("gym_number");
+                date=numRS.getString("date");
+                gymNumComboBox.getItems().add(new gymnum(num));
+                reservationDateComboBox.getItems().add(new reservationDate(date));
+            }
+            numRS.close();
+    } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
-    public void setOldStage(Stage stage) {
+        public void setOldStage(Stage stage) {
         oldStage = stage;
     }
 }
