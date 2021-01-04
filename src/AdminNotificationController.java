@@ -57,6 +57,7 @@ public class AdminNotificationController {
                 throwable.printStackTrace();
             }
             updateNotificationTable();
+            notificationTf.setText("");
         }
     }
 
