@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ReservationManagement extends BorderPane {
 
-    public static final double WIDTH = 658, HEIGHT = 550;
+    public static final double WIDTH = 590, HEIGHT = 450;
 
     public ReservationManagement(Stage stage) {
         try {
