@@ -9,6 +9,7 @@ import java.io.IOException;
 
 public class AdminHomepage extends BorderPane {
 
+    //set the width and height of admin homepage
     public static final double WIDTH = 600, HEIGHT = 400;
 
     public AdminHomepage(Stage stage) {
