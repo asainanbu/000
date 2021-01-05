@@ -14,6 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class UserMyReservationController {
+    ResultSet reservationRS;
+
     private Stage oldStage = null;
     @FXML
     private ResourceBundle resources;
@@ -73,7 +75,15 @@ public class UserMyReservationController {
 
     @FXML
     void revokeClick(ActionEvent event) {
-
+        myReservationTable.setOnMouseClicked(e->{
+            int index=myReservationTable.getSelectionModel().getSelectedIndex();
+            try {
+                reservationRS.absolute(index);
+                reservationRS.deleteRow();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        });
     }
 
     public void setOldStage(Stage stage) {
@@ -91,7 +101,7 @@ public class UserMyReservationController {
         assert myReservationTable != null : "fx:id=\"myReservationTable\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         String time,  number;
         Date date;
-        ResultSet reservationRS = null;
+        reservationRS = null;
         try {
             reservationRS = Main.statement.executeQuery("SELECT * FROM reservation");
             while(reservationRS.next()){
@@ -104,6 +114,7 @@ public class UserMyReservationController {
                 this.number.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("number"));
                 this.date.setCellValueFactory(new PropertyValueFactory<MyReservation, Date>("date"));
                 this.time.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("time"));
+
             }
             reservationRS.close();
         } catch (SQLException throwables) {

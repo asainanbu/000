@@ -9,10 +9,20 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import java.sql.Time;
 
 public class UserGymReservationController {
 
     private Stage oldStage = null;
+
+    @FXML
+    private TableColumn<gymreservation, Integer> reservation;
+
+    @FXML
+    private TableColumn<gymreservation, Time> starttime;
+
+    @FXML
+    private TableColumn<gymreservation, Time> endtime;
 
     @FXML
     private ResourceBundle resources;
@@ -27,7 +37,7 @@ public class UserGymReservationController {
     private Button reserveButton;
 
     @FXML
-    private TableView<?> reservationTable;
+    private TableView<gymreservation> reservationTable;
 
     @FXML
     private ComboBox<gymnum> gymNumComboBox;
@@ -40,12 +50,13 @@ public class UserGymReservationController {
     void gymNumSelect(ActionEvent event) {
         int gymselectIndex = gymNumComboBox.getSelectionModel().getSelectedIndex();
         Object gymselectItem =gymNumComboBox.getSelectionModel().getSelectedItem();
+
     }
 
     @FXML
     void reservationDateSelect(ActionEvent event) {
-        int dateselectIndex = reservationDateComboBox.getSelectionModel().getSelectedIndex();
-        Object dateselectItem =reservationDateComboBox.getSelectionModel().getSelectedItem();
+        int dateselectIndex = reservationDateComboBox.getSelectionModel().getSelectedIndex();//选择了combobox内内容的编号
+        Object dateselectItem =reservationDateComboBox.getSelectionModel().getSelectedItem();//选择了combobox内的内容
     }
 
     @FXML
