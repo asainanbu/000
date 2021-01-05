@@ -45,16 +45,26 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-            <TableView fx:id="reservationTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-              <columns>
-                  <TableColumn fx:id="reservation" prefWidth="44.00003147125244" text="预约" />
-                <TableColumn fx:id="startime" prefWidth="199.3332862854004" text="开始时间" />
-                <TableColumn fx:id="endtime" prefWidth="179.33335876464844" text="结束时间" />
-              </columns>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </BorderPane.margin>
-            </TableView>
+            <GridPane minHeight="-Infinity" minWidth="-Infinity">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <TableView fx:id="reservationTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <columns>
+                        <TableColumn fx:id="reservation" prefWidth="44.00003147125244" text="预约" />
+                      <TableColumn fx:id="startime" prefWidth="199.3332862854004" text="开始时间" />
+                      <TableColumn fx:id="endtime" prefWidth="179.33335876464844" text="结束时间" />
+                    </columns>
+                     <BorderPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </BorderPane.margin>
+                  </TableView>
+               </children>
+            </GridPane>
          </center>
          <top>
             <GridPane BorderPane.alignment="CENTER">
