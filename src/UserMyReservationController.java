@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+import java.sql.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,6 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class UserMyReservationController {
+    ResultSet reservationRS;
+
     private Stage oldStage = null;
     @FXML
     private ResourceBundle resources;
@@ -21,7 +23,7 @@ public class UserMyReservationController {
     private TableColumn<MyReservation,String> number;
 
     @FXML
-    private TableColumn<MyReservation,String> date;
+    private TableColumn<MyReservation,Date> date;
 
     @FXML
     private TableColumn<MyReservation,String> time;
@@ -73,7 +75,13 @@ public class UserMyReservationController {
 
     @FXML
     void revokeClick(ActionEvent event) {
-
+        myReservationTable.setOnMouseClicked(e->{
+            myReservationTable.setEditable(true);
+            int index=myReservationTable.getSelectionModel().getSelectedIndex();
+            if(index!=-1){
+                myReservationTable.getItems().remove(index);
+            }
+        });
     }
 
     public void setOldStage(Stage stage) {
@@ -89,19 +97,21 @@ public class UserMyReservationController {
         assert  situation != null : "fx:id=\"Situation\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert revokeButton != null : "fx:id=\"revokeButton\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert myReservationTable != null : "fx:id=\"myReservationTable\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        String time, date, number;
-        ResultSet reservationRS = null;
+        String time;
+        int number;
+        Date date;
+        reservationRS = null;
         try {
             reservationRS = Main.statement.executeQuery("SELECT * FROM reservation");
             while(reservationRS.next()){
                 time=reservationRS.getString("time");
-                date=reservationRS.getString("date");
-                number=reservationRS.getString("gym_number");
+                date=reservationRS.getDate("date");
+                number=reservationRS.getInt("gym_number");
                 ObservableList<MyReservation> obsList = FXCollections.observableArrayList();
                 obsList.add(new MyReservation(number,date,time));
                 myReservationTable.setItems(obsList);
                 this.number.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("number"));
-                this.date.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("date"));
+                this.date.setCellValueFactory(new PropertyValueFactory<MyReservation, Date>("date"));
                 this.time.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("time"));
             }
             reservationRS.close();

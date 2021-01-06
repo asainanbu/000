@@ -1,4 +1,7 @@
 import java.net.URL;
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -6,10 +9,20 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import java.sql.Time;
 
 public class UserGymReservationController {
 
     private Stage oldStage = null;
+
+    @FXML
+    private TableColumn<gymreservation, Integer> reservation;
+
+    @FXML
+    private TableColumn<gymreservation, Time> starttime;
+
+    @FXML
+    private TableColumn<gymreservation, Time> endtime;
 
     @FXML
     private ResourceBundle resources;
@@ -24,23 +37,26 @@ public class UserGymReservationController {
     private Button reserveButton;
 
     @FXML
-    private TableView<?> reservationTable;
+    private TableView<gymreservation> reservationTable;
 
     @FXML
-    private ComboBox<?> gymNumComboBox;
+    private ComboBox<gymnum> gymNumComboBox;
 
     @FXML
-    private ComboBox<?> reservationDateComboBox;
+    private ComboBox<reservationDate> reservationDateComboBox;
 
 
     @FXML
     void gymNumSelect(ActionEvent event) {
+        int gymselectIndex = gymNumComboBox.getSelectionModel().getSelectedIndex();
+        Object gymselectItem =gymNumComboBox.getSelectionModel().getSelectedItem();
 
     }
 
     @FXML
     void reservationDateSelect(ActionEvent event) {
-
+        int dateselectIndex = reservationDateComboBox.getSelectionModel().getSelectedIndex();//选择了combobox内内容的编号
+        Object dateselectItem =reservationDateComboBox.getSelectionModel().getSelectedItem();//选择了combobox内的内容
     }
 
     @FXML
@@ -85,9 +101,23 @@ public class UserGymReservationController {
         assert reservationTable != null : "fx:id=\"reservationTable\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert gymNumComboBox != null : "fx:id=\"gymNumComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
-
+        int num;
+        Date date;
+        ResultSet numRS=null;
+        try {
+            numRS = Main.statement.executeQuery("SELECT * FROM reservation");
+            while(numRS.next()){
+                num=numRS.getInt("gym_number");
+                date=numRS.getDate("date");
+                gymNumComboBox.getItems().add(new gymnum(num));
+                reservationDateComboBox.getItems().add(new reservationDate(date));
+            }
+            numRS.close();
+    } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
-    public void setOldStage(Stage stage) {
+        public void setOldStage(Stage stage) {
         oldStage = stage;
     }
 }

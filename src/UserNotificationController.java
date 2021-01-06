@@ -3,7 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-
+import java.sql.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,7 +19,7 @@ public class UserNotificationController {
     private Stage oldStage = null;
 
     @FXML
-    private TableColumn<Notification,String> launchDate;
+    private TableColumn<Notification, Date> launchDate;
 
     @FXML
     private TableColumn<Notification,String> contents;
@@ -81,19 +81,19 @@ public class UserNotificationController {
         assert launchDate != null : "fx:id=\"LaunchDate\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
         assert notificationTable != null : "fx:id=\"notificationTable\" was not injected: check your FXML file 'UserNotificationUI.fxml'.";
 
-        String date;
+        Date date;
         String content;
         ResultSet notificationRS;
 
         try {
             notificationRS = Main.statement.executeQuery("SELECT * FROM notification");
             while(notificationRS.next()){
-                date=notificationRS.getString("release_date");
+                date=notificationRS.getDate("release_date");
                 content=notificationRS.getString("content");
                 ObservableList<Notification> obsList = FXCollections.observableArrayList();
                 obsList.add(new Notification(date,content));
                 notificationTable.setItems(obsList);
-                launchDate.setCellValueFactory(new PropertyValueFactory<Notification, String>("date"));
+                launchDate.setCellValueFactory(new PropertyValueFactory<Notification, Date>("date"));
                 contents.setCellValueFactory(new PropertyValueFactory<Notification, String>("includings"));
             }
             notificationRS.close();
