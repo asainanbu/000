@@ -44,7 +44,7 @@ public class AdminNotificationController {
             alert.showAndWait();
         }
         else {
-            ResultSet notificationRS = null;
+            ResultSet notificationRS;
 
             try {
                 notificationRS = Main.statement.executeQuery("SELECT * FROM notification");

@@ -84,7 +84,7 @@ public class ReservationManagementController {
     @FXML
     void approveClick(ActionEvent event) {
         if (Objects.equals(mouseSelectReservation.getStatus(), "待审核")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE reservation SET status = 'reserved' WHERE member = ?");
                 preparedStatement.setString(1, mouseSelectReservation.getMemberName());
@@ -100,7 +100,7 @@ public class ReservationManagementController {
     @FXML
     void resumeClick(ActionEvent event) {
         if (Objects.equals(mouseSelectReservation.getStatus(), "已禁用")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE reservation SET status = 'available' WHERE member = ?");
                 preparedStatement.setString(1, mouseSelectReservation.getMemberName());
@@ -116,7 +116,7 @@ public class ReservationManagementController {
     @FXML
     void revokeClick(ActionEvent event) {
         if (Objects.equals(mouseSelectReservation.getStatus(), "可预约")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE reservation SET status = 'disabled' WHERE member = ?");
                 preparedStatement.setString(1, mouseSelectReservation.getMemberName());
@@ -132,16 +132,13 @@ public class ReservationManagementController {
     @FXML
     void reserveClick(ActionEvent event) {
         if (Objects.equals(mouseSelectReservation.getStatus(), "可预约")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE reservation SET status = 'reserved', member = ? WHERE gym_number = ? AND date = ? AND time = ?");
                 preparedStatement.setString(1, Main.currentMemberName);
                 preparedStatement.setInt(2, mouseSelectReservation.getGymNum());
                 preparedStatement.setDate(3, new java.sql.Date(mouseSelectReservation.getDate().getTime()));
                 preparedStatement.setTime(4, (new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)));
-//                Calendar calendar = Calendar.getInstance();
-//                calendar.setTime((new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)));
-//                preparedStatement.setTime(4, (java.sql.Time)(new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)), calendar);
                 preparedStatement.executeUpdate();
             } catch (SQLException sqlException) {
                 sqlException.printStackTrace();

@@ -10,7 +10,7 @@ public class Cryptography {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA-512");
                 messageDigest.update(plainText.getBytes());
-                byte byteBuffer[] = messageDigest.digest();
+                byte[] byteBuffer = messageDigest.digest();
                 StringBuilder stringBuilder = new StringBuilder();
                 for (byte b : byteBuffer) {
                     String hex = Integer.toHexString(0xff & b);

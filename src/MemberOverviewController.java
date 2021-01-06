@@ -49,7 +49,7 @@ public class MemberOverviewController {
     @FXML
     void approveClick(ActionEvent event) {
         if (Objects.equals(mouseSelectMember.getStatus(), "待审核")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'enabled' WHERE member_name = ?");
                 preparedStatement.setString(1, mouseSelectMember.getUsername());
@@ -65,7 +65,7 @@ public class MemberOverviewController {
     @FXML
     void disableClick(ActionEvent event) {
         if (Objects.equals(mouseSelectMember.getStatus(), "已启用")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'disabled' WHERE member_name = ?");
                 preparedStatement.setString(1, mouseSelectMember.getUsername());
@@ -81,7 +81,7 @@ public class MemberOverviewController {
     @FXML
     void enableClick(ActionEvent event) {
         if (Objects.equals(mouseSelectMember.getStatus(), "已禁用")) {
-            PreparedStatement preparedStatement = null;
+            PreparedStatement preparedStatement;
             try {
                 preparedStatement = Main.connection.prepareStatement("UPDATE member SET status = 'enabled' WHERE member_name = ?");
                 preparedStatement.setString(1, mouseSelectMember.getUsername());

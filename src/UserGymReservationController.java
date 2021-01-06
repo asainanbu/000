@@ -103,7 +103,7 @@ public class UserGymReservationController {
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         int num;
         Date date;
-        ResultSet numRS=null;
+        ResultSet numRS;
         try {
             numRS = Main.statement.executeQuery("SELECT * FROM reservation");
             while(numRS.next()){

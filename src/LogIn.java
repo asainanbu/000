@@ -15,7 +15,7 @@ public class LogIn extends BorderPane {
             this.getChildren().add(fxmlLoader.load());
 
             // 获得控制器对象,并把数据传给控制器对象
-            ((LogInController)fxmlLoader.getController()).setOldStage(stage);;
+            ((LogInController)fxmlLoader.getController()).setOldStage(stage);
 
         } catch (IOException e) {
             e.printStackTrace();

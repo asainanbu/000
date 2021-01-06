@@ -4,7 +4,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 
-import java.util.Calendar;
 import java.util.Optional;
 import java.sql.*;
 
@@ -51,7 +50,7 @@ public class Main extends Application {
             connection = DriverManager.getConnection(DB_URL,"root","");
             statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
         }catch(SQLException | ClassNotFoundException se) {
-            System.out.println("ERROR: Failed to initialize the databse!");
+            System.out.println("ERROR: Failed to initialize the database!");
             se.printStackTrace();
         }
 

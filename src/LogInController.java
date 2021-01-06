@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Currency;
 import java.util.Objects;
 import java.util.Optional;
 
