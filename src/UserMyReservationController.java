@@ -76,12 +76,10 @@ public class UserMyReservationController {
     @FXML
     void revokeClick(ActionEvent event) {
         myReservationTable.setOnMouseClicked(e->{
+            myReservationTable.setEditable(true);
             int index=myReservationTable.getSelectionModel().getSelectedIndex();
-            try {
-                reservationRS.absolute(index);
-                reservationRS.deleteRow();
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
+            if(index!=-1){
+                myReservationTable.getItems().remove(index);
             }
         });
     }

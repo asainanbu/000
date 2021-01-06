@@ -101,13 +101,13 @@ public class UserGymReservationController {
         assert reservationTable != null : "fx:id=\"reservationTable\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert gymNumComboBox != null : "fx:id=\"gymNumComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
         assert reservationDateComboBox != null : "fx:id=\"reservationDateComboBox\" was not injected: check your FXML file 'UserGymReservationUI.fxml'.";
-        String num;
+        int num;
         Date date;
         ResultSet numRS=null;
         try {
             numRS = Main.statement.executeQuery("SELECT * FROM reservation");
             while(numRS.next()){
-                num=numRS.getString("gym_number");
+                num=numRS.getInt("gym_number");
                 date=numRS.getDate("date");
                 gymNumComboBox.getItems().add(new gymnum(num));
                 reservationDateComboBox.getItems().add(new reservationDate(date));

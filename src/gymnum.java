@@ -1,14 +1,14 @@
 public class gymnum {
-    private String number;
-    public gymnum(String number){
+    private int number;
+    public gymnum(int number){
         this.number=number;
     }
 
-    public String getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(int number) {
         this.number = number;
     }
 }
