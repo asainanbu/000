@@ -5,7 +5,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.spi.CalendarDataProvider;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -140,6 +139,9 @@ public class ReservationManagementController {
                 preparedStatement.setInt(2, mouseSelectReservation.getGymNum());
                 preparedStatement.setDate(3, new java.sql.Date(mouseSelectReservation.getDate().getTime()));
                 preparedStatement.setTime(4, (new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)));
+//                Calendar calendar = Calendar.getInstance();
+//                calendar.setTime((new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)));
+//                preparedStatement.setTime(4, (java.sql.Time)(new java.sql.Time(Integer.parseInt(mouseSelectReservation.getTime().substring(0, 2)) + 1, -30, 0)), calendar);
                 preparedStatement.executeUpdate();
             } catch (SQLException sqlException) {
                 sqlException.printStackTrace();
@@ -195,13 +197,11 @@ public class ReservationManagementController {
 
     @FXML
     void startTimeClick(ActionEvent event) {
-        System.out.println("start time clicked");
         updateReservationTable();
     }
 
     @FXML
     void endTimeClick(ActionEvent event) {
-        System.out.println("end time clicked");
         updateReservationTable();
     }
 
@@ -232,8 +232,6 @@ public class ReservationManagementController {
                 ReservationAdmin currentReservation = new ReservationAdmin(reservationRS.getInt("gym_number"), reservationRS.getDate("date"), reservationRS.getTime("time"), reservationRS.getString("status"), reservationRS.getString("member"));
 
                 boolean gymNumFlag = false, dateFlag = false, timeFlag = false;
-                Calendar currentReservationCalendar = Calendar.getInstance();
-                currentReservationCalendar.setTime(currentReservation.getDate());
 
                 if (gymNumSelected == -1 || gymNumSelected == 0 || gymNumSelected == currentReservation.getGymNum()) {
                     gymNumFlag = true;
@@ -241,24 +239,21 @@ public class ReservationManagementController {
                 if (reservationDateSelected == -1 || reservationDateSelected == 0) {
                     dateFlag = true;
                 } else {
-//                    Date date = new Date((new Date()).getTime() + (long) (reservationDateSelected - 1) * 24 * 60 * 60 * 1000);
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setTime(new Date());
-
-                    if (currentReservationCalendar.get(Calendar.MONTH) == calendar.get(Calendar.MONTH) && currentReservationCalendar.get(Calendar.DATE) == calendar.get(Calendar.DATE)) {
+                    Date date = new Date((new Date()).getTime() + (long) (reservationDateSelected - 1) * 24 * 60 * 60 * 1000);
+                    if (currentReservation.getDate().getMonth() == date.getMonth() && currentReservation.getDate().getDate() == date.getDate()) {
                         dateFlag = true;
                     }
                 }
                 if (startTimeSelected == -1 && endTimeSelected == -1) {
                     timeFlag = true;
                 }
-                else if (startTimeSelected == -1 && currentReservationCalendar.get(Calendar.HOUR_OF_DAY) <= 10 + endTimeSelected) {
+                else if (startTimeSelected == -1 && currentReservation.getDate().getHours() <= 10 + endTimeSelected) {
                     timeFlag = true;
                 }
-                else if (9 + startTimeSelected <= currentReservationCalendar.get(Calendar.HOUR_OF_DAY) && endTimeSelected == -1) {
+                else if (9 + startTimeSelected <= currentReservation.getDate().getHours() && endTimeSelected == -1) {
                     timeFlag = true;
                 }
-                else if (9 + startTimeSelected <= currentReservationCalendar.get(Calendar.HOUR_OF_DAY) && currentReservationCalendar.get(Calendar.HOUR_OF_DAY) <= 10 + endTimeSelected) {
+                else if (9 + startTimeSelected <= currentReservation.getDate().getHours() && currentReservation.getDate().getHours() <= 10 + endTimeSelected) {
                     timeFlag = true;
                 }
                 if (gymNumFlag && dateFlag && timeFlag) {
@@ -312,18 +307,16 @@ public class ReservationManagementController {
             endTimeComboBox.getItems().add(String.format("%02d:00", i));
         }
 
+        //TODO
+        //write a function which checks if in the database there is Reservations in the next 7 days, and then add them if not
         try {
             reservationRS = Main.statement.executeQuery("SELECT * FROM reservation");
             for (int i = 0; i < 7; i++) {
-                Date presentDate = new Date((new Date()).getTime() + (long) i * 24 * 60 * 60 * 1000);
-                Calendar presentCalendar = Calendar.getInstance();
-                presentCalendar.setTime(presentDate);
+                Date date = new Date((new Date()).getTime() + (long) i * 24 * 60 * 60 * 1000);
                 reservationRS.beforeFirst();
                 boolean found = false;
                 while (reservationRS.next()) {
-                    Calendar traversalCalendar = Calendar.getInstance();
-                    traversalCalendar.setTime(reservationRS.getDate("date"));
-                    if (traversalCalendar.get(Calendar.MONTH) == presentCalendar.get(Calendar.MONTH) && traversalCalendar.get(Calendar.DATE) == presentCalendar.get(Calendar.DATE)) {
+                    if (reservationRS.getDate("date").getMonth() == date.getMonth() && reservationRS.getDate("date").getDate() == date.getDate()) {
                         found = true;
                         break;
                     }
@@ -333,7 +326,7 @@ public class ReservationManagementController {
                         for (int k = 9; k <= 21; k++) {
                             reservationRS.moveToInsertRow();
                             reservationRS.updateInt(1, j);
-                            reservationRS.updateDate(2, new java.sql.Date(presentDate.getTime()));
+                            reservationRS.updateDate(2, new java.sql.Date(date.getTime()));
                             reservationRS.updateTime(3, new java.sql.Time(k + 1, -30, 0));
                             reservationRS.updateString(4, "available");
                             reservationRS.updateString(5, "");
