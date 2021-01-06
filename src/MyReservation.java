@@ -1,36 +1,37 @@
 import java.sql.Date;
 
 public class MyReservation {
-    private String number;
+    private int number;
     private Date date;
     private String time;
-    public MyReservation(String number,Date date,String time){
-        this.date=date;
-        this.number=number;
-        this.time=time;
+
+    public MyReservation(int number, Date date, String time) {
+        this.date = date;
+        this.number = number;
+        this.time = time;
     }
 
-    public Date getdate() {
-        return date;
-    }
-
-    public void setdate(Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getnumber() {
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
         return number;
     }
 
-    public void setumber(String number) {
-        this.number=number;
-    }
-
-    public String gettime() {
-        return time;
-    }
-
-    public void settime(String time) {
+    public void setTime(String time) {
         this.time = time;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public String getTime() {
+        return time;
     }
 }

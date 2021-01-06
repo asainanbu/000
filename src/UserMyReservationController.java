@@ -99,7 +99,8 @@ public class UserMyReservationController {
         assert  situation != null : "fx:id=\"Situation\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert revokeButton != null : "fx:id=\"revokeButton\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
         assert myReservationTable != null : "fx:id=\"myReservationTable\" was not injected: check your FXML file 'UserMyReservationUI.fxml'.";
-        String time,  number;
+        String time;
+        int number;
         Date date;
         reservationRS = null;
         try {
@@ -107,14 +108,13 @@ public class UserMyReservationController {
             while(reservationRS.next()){
                 time=reservationRS.getString("time");
                 date=reservationRS.getDate("date");
-                number=reservationRS.getString("gym_number");
+                number=reservationRS.getInt("gym_number");
                 ObservableList<MyReservation> obsList = FXCollections.observableArrayList();
                 obsList.add(new MyReservation(number,date,time));
                 myReservationTable.setItems(obsList);
                 this.number.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("number"));
                 this.date.setCellValueFactory(new PropertyValueFactory<MyReservation, Date>("date"));
                 this.time.setCellValueFactory(new PropertyValueFactory<MyReservation, String>("time"));
-
             }
             reservationRS.close();
         } catch (SQLException throwables) {
